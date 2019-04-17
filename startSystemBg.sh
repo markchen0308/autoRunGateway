@@ -5,7 +5,7 @@
 #sudo kill pidnumber
 
 #get account in config.json
-account=$(grep -Po '"account":.*?[^\\]",' config.json | sed 's/"account"://g' | sed 's/,//g' | sed 's/"//g')
+account=$(grep -Po '"account":.*?[^\\]",' ~/prj/node/autoRunGateway/config.json | sed 's/"account"://g' | sed 's/,//g' | sed 's/"//g')
 
 homePath="/home/$account"
 
