@@ -10,29 +10,23 @@ passwd=mark
 
 homePath="/home/$account"
 
-destPidCollect="$homePath/prj/node/autoRunGateway/pidCollect.txt"
-
-cd ~/prj/node/VLC/dist
+#start controlProcess in background
+cd $homePath/prj/node/VLC/dist
 echo $passwd | sudo -S node controlProcess.js  &
 
 
 #sleep 2 second
 sleep 2
 
-
-
-#start web server
-cd ~/prj/node/express-iot-vlc
+#start web server in background
+cd $homePath/prj/node/express-iot-vlc
 echo $passwd | sudo -S node bin/www &
 
 #sleep 1 second
 sleep 1
-#start modbus control
-cd ~/prj/node/VLC/dist
-echo $passwd | sudo -S node controlModebus.js
 
+#start modbus control in background
+cd $homePath/prj/node/VLC/dist
+echo $passwd | sudo -S node controlModebus.js &
 
-#get pid and save to file
-#pgrep node | xargs echo > "$destPidCollect"
-#pgrep node | xargs  >> "$destPidCollect"
 
